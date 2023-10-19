@@ -1,0 +1,106 @@
+@media (max-width: 1400px){
+span.image-text{
+    font-size: 8px;
+}
+ button.button-image{
+    height: 150px;
+    width: 250px;
+ }
+ img.pic-size{
+    height: 150px;
+    width: 250px;
+ }
+ div.image-container{
+    position: relative;
+    height: 150px;
+    width: 250px;
+    /* margin-top: 1%; */
+    border: 1px solid black;
+}
+div.image-textSpace{
+    width: 150px;
+    position: absolute;
+    border: 1px solid black;
+    bottom: 0;
+    right: 0;
+    background-color: lightgreen;
+    color: black;
+}
+}
+
+.pic-size{
+    width: 470px;
+    height: 180px;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+.carousel-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+.arrow-buttons{
+    border: none;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.image-container{
+    position: relative;
+    width: 470px;
+    height: 180px;
+    /* margin-top: 1%; */
+    border: 1px solid black;
+}
+
+.image-container:focus{
+    background-color: gray;
+}
+
+.image-textSpace{
+    /* width: 100px; */
+    position: absolute;
+    border: 1px solid black;
+    bottom: 0;
+    right: 0;
+    background-color: lightgreen;
+    color: black;
+}
+
+.image-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+}
+
+.vr-line{
+    transform: rotate(90deg);
+}
+
+.button-image{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}

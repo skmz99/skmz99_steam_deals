@@ -1,0 +1,38 @@
+@media (max-width: 1232px){
+    div.submit_login_container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+
+.profile-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    /* background-color: lightgray; */
+    overflow: hidden;
+}
+
+.name-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px;
+}
+
+
+.user-wishlistArea{
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.submit_login_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

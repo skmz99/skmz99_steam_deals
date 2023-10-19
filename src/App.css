@@ -1,0 +1,46 @@
+#root{
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #8cabe6;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  /* min-height: 100vh; */
+  height: calc(100vh-3px);
+  min-width: 100vw;
+}
+
+.filterSide{
+  height: 100vh;
+  width: 10vw;
+  border: 1px solid black;
+  background: rgba(4, 4, 78, 0.459);
+}
+
+.middleGameDeals{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: lightgray; */
+  height: 100vh;
+  width: 80vw;
+  overflow: hidden;
+  /* min-width: 500px; */
+  border: 1px solid black;
+}
+
+.profileSetup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(4, 4, 78, 0.459);
+  height: 100vh;
+  width: 10vw;
+  border: 1px solid black;
+}

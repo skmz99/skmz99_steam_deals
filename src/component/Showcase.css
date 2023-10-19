@@ -1,0 +1,169 @@
+@media (max-width: 1640px){
+    span{
+        font-size: small;
+    }
+    div.showcase_container{
+        min-width:200px;
+    }
+    div.Showcase-gameRow{
+        width: 400px;
+
+    }
+}
+
+@media (max-width: 1240px){
+    span{
+        font-size: 10px;
+    }
+    div.showcase_container{
+        min-width:200px;
+    }
+    div.Showcase-gamesRow{
+        width: 400px;
+
+    }
+    span.Showcase-gamesTexttitle{
+        min-width: 100px;
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 1100px){
+    span{
+        font-size: 10px;
+    }
+    div.showcase_container{
+        min-width:200px;
+    }
+    div.Showcase-gamesRow{
+        width: 400px;
+
+    }
+    span.Showcase-gamesTexttitle{
+        min-width: 30px;
+        max-width: 30px;
+    }
+    input.search-barSize{
+        width: 100px;
+    }
+}
+@media (max-width: 460px){
+    span{
+        font-size: 10px;
+    }
+    div.showcase_container{
+        min-width:200px;
+    }
+    div.Showcase-gamesRow{
+        width: 400px;
+
+    }
+    span.Showcase-gamesTexttitle{
+        min-width: 30px;
+        max-width: 30px;
+    }
+    input.search-barSize{
+        width: 60px;
+    }
+}
+
+.search-bar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 47%;
+}
+
+.search-barSize{
+    width: 200px;
+}
+.showcase_container{
+    display: flex;
+    /* height: 100vh; */
+    height: inherit;
+    overflow: hidden;
+    width: 100% ;
+    flex-direction: column;
+}
+
+.Showcase-games{
+    display: flex;
+    flex-direction: row;
+    /* height: auto; */
+    /* min-height: ; */
+    width: 100%;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    /* background-color: #d3d3d3; */
+}
+
+
+.Showcase-gamesRow{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 550px;
+    /* min-width: 400px; */
+    /* width: 60%; */
+    /* margin-top: 20px; */
+    border: 1px solid black;
+}
+
+.Showcase-gamesText{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    min-width: 40px;
+    padding: 10px;
+}
+
+.Showcase-gamesTexttitle{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    /* min-width: 40px; */
+    min-width: 215px;
+    max-width: 215px;
+    padding: 10px;
+}
+
+.Showcase-priceBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    max-width: 50px;
+    align-items: center;
+    background-color: lightgreen;
+}
+
+.Showcase-button{
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: rgb(63, 241, 63);
+    border: 0px solid black;
+    border-radius: 0px;
+}
+
+.page-button{
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 0px;
+}
+
+.Showcase-buttonLink{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+}
