@@ -7,9 +7,10 @@ const bcrypt = require('bcrypt');
 const app = express();
 //////////////////////////////////
 /// 
-require('dotenv').config();
+require('dotenv').config;
 ////////////
-
+// console.log(process.env.DATABASE_URL)
+// console.log(process.env.DATABASE)
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     database: process.env.DATABASE,
