@@ -10,19 +10,6 @@ const Profile = () =>{
         userName: false,
         passWord: false
     });
-
-
-
-    //delete useEffect before commit
-    // useEffect(()=>{
-    //     fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&pageNumber=1',{
-    //         method: 'GET',
-    //         redirect: 'follow'
-    //     })
-    //     .then(result=>{return result.json()})
-    //     .then(response=>{setUser(response)})
-    // },[])
- 
         
     useEffect(()=>{
         // fetch('http://localhost:5432/sessionUser',{
@@ -165,7 +152,6 @@ const Profile = () =>{
         <div className="profile-wrapper">
             <div style={{height: '10%',border: '1px solid black', overflow: "hidden"}}>
                 <div style={{display: 'flex', flexDirection: 'row',width: '100%', height: '100%'}}>
-                    {/* changed */}
                     <div style={{position: 'relative',display: 'flex', flexWrap: 'wrap', width: '70%',justifyContent: 'flex-start', alignItems: 'flex-end'}}>
                         <div style={{display: 'flex', overflowWrap: 'break-word', hegith: '100%', width: '100%', flexFlow: 'column '}}>
 
@@ -176,11 +162,6 @@ const Profile = () =>{
                             }
                         </div>
                     </div>
-
-
-
-
-
 
                     <div style={{display: 'flex', width: '30%', alignItems: 'flex-end'}}>
                         {userName === undefined ?
