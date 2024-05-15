@@ -11,15 +11,17 @@ const Profile = () =>{
         passWord: false
     });
 
+
+
     //delete useEffect before commit
-    useEffect(()=>{
-        fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&pageNumber=1',{
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(result=>{return result.json()})
-        .then(response=>{setUser(response)})
-    },[])
+    // useEffect(()=>{
+    //     fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&pageNumber=1',{
+    //         method: 'GET',
+    //         redirect: 'follow'
+    //     })
+    //     .then(result=>{return result.json()})
+    //     .then(response=>{setUser(response)})
+    // },[])
  
         
     useEffect(()=>{
