@@ -19,6 +19,7 @@ const Showcase = (props) =>{
         })
         .then(result=>{return result.json()})
         .then(response=>{setData(response)})
+        
         .catch(err=>console.log(err))
     },[URL])
 
@@ -96,74 +97,101 @@ const Showcase = (props) =>{
                         </form>
                     </div>
                 </div>
-                <div className='Showcase-games' style={{display: 'flex', justifyContent: 'center', alignItems: "center"}}>
-                    {data === undefined ? "":
+                <div className='Showcase-games' style={{display: 'flex'}}>
+                    {data === undefined || data.length === 0 ? 
+                        <div style={{height: '100vh', width: '100%', display: 'flex', justifyContent :'center', alignItems: 'center'}}>
+                            <span>List is Empty</span>
+                        </div>
+                    :
                         data.map((val,key)=>{
                             if(val.steamAppID !== undefined && val.cheapest === undefined){
                                 return(
-                                    <div key={key} className="Showcase-gamesRow">
-                                        <button onClick={()=>{window.open(`https://store.steampowered.com/app/${val.steamAppID}`)}} className="Showcase-buttonLink" style={{height: '65px', width: '400px'}}>
-                                            <img style={{height: '100%', width: '100%'}} src={val.thumb} alt={val.title}></img>
+                                    <div key={key} className="gameContainer">
+                                            <button onClick={()=>{window.open(`https://store.steampowered.com/app/${val.steamAppID}`)}}
+                                                    className='Showcase-buttonLink' style={{height: '60px', width: '160px'}}
+                                                    >
+                                                <img style={{height: '100%', width: '100%'}} src={val.thumb} alt={val.title}/>   
                                             </button>
-                                            <div style={{border: '1px solid'}}/>
-                                            <div style={{display: 'flex', flexGrow: 'inherit' ,height: '100%', width: '100%'}}>
+
+                                            <div style={{borderRight: '1px solid'}}/>
+
+                                            <div style={{display: 'flex', flexGrow: 'inherit', height: 'inherit', width: '55%', borderRight: '1px solid', justifyContent: 'center', alignItems: 'center'}}>
+
                                                 <span className="Showcase-gamesTexttitle" style={{flexWrap: 'wrap'}}>{val.title + ": "}</span>
+
                                             </div>
+
                                             <div className="Showcase-priceBox">
-                                                <div style={{height: '20%', display: 'flex', justifyContent:  'center', alignItems: 'center'}}>
-                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>Original</span>
+                                                <div style={{height: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>
+                                                        Orignal
+                                                    </span>
                                                 </div>
-                                                <div style={{border: '1px solid black',  width: '100%', marginTop: '3px'}}/>
+                                                <div style={{border: '1px solid', width: '100%', marginTop: '3px'}}/>
                                                 <div style={{height: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                                     <span className="Showcase-gamesText" style={{padding: '7px'}}>{"$"+val.normalPrice}</span>
                                                 </div>
                                             </div>
+
                                             <div className="Showcase-priceBox">
-                                            <div style={{height: '20%', display: 'flex', justifyContent:  'center', alignItems: 'center'}}>
-                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>Discount</span>
+                                                <div style={{height: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>
+                                                        Discount
+                                                    </span>
                                                 </div>
-                                                <div style={{border: '1px solid black',  width: '100%', marginTop: '3px'}}/>
+
+                                                <div style={{border:'1px solid', width: '100%', marginTop: '3px'}}/>
+
                                                 <div style={{height: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                                     <span className="Showcase-gamesText" style={{padding: '7px'}}>{"$"+val.salePrice}</span>
                                                 </div>
                                             </div>
+
                                             <div className="Showcase-priceBox">
-                                            <div style={{height: '20%', display: 'flex', justifyContent:  'center', alignItems: 'center'}}>
-                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>Percentage</span>
+                                                <div style={{height: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                                    <span className="Showcase-gamesText" style={{fontSize: '10px', padding: '0'}}>
+                                                        Percentage
+                                                    </span>
                                                 </div>
-                                                <div style={{border: '1px solid black',  width: '100%', marginTop: '3px'}}/>
+
+                                                <div style={{border: '1px solid', width: '100%', marginTop: '3px'}}/>
+
                                                 <div style={{height: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                                    <span className="Showcase-gamesText" style={{padding: '7px'}}>{"%"+Math.floor(val.savings)}</span>
+                                                    <span className="Showcase-gamesText" style={{padding: '7px'}}>
+                                                        {"%"+Math.floor(val.savings)}
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div className="Showcase-priceBox" style={{border: '1px solid black', backgroundColor: 'none'}}>
-                                                <button 
+                                            
+                                            <div className="Showcase-priceBox" style={{border: '1px solid', backgroundColor: 'none'}}>
+                                                <button
                                                     onClick={()=>{
                                                         watchlisthHandler(
-                                                            val.thumb, 
-                                                            val.title, 
-                                                            val.steamAppID, 
-                                                            val.normalPrice, 
-                                                            val.salePrice, 
+                                                            val.thumb,
+                                                            val.title,
+                                                            val.steamAppID,
+                                                            val.normalPrice,
+                                                            val.salePrice,
                                                             val.savings
-                                                        )}} 
+                                                        )
+                                                    }}
                                                     className="Showcase-button">
-                                                        Add to Watch list
-                                                </button>
+                                                        Add to Watch List
+                                                    </button>
                                             </div>
-                                        </div>
+                                    </div>
                                 )
                             }
-                            // else if(val.steamAppID != null && val.cheapest != null){
+                    
                             return(
-                                <div key={key} className="Showcase-gamesRow">
-                                    <button onClick={()=>{window.open(`https://store.steampowered.com/app/${val.steamAppID}`)}} style={{height: '65px', width: '400px',background: 'none', color: 'inherit', border: 'none', padding: '0', font: 'inherit', outline: 'inherit',cursor: 'pointer' }}>
+                                <div key={key} className='gameContainer'>
+                                    <button onClick={()=>{window.open(`https://store.steampowered.com/app/${val.steamAppID}`)}} style={{height: '60px', width: '160px',background: 'none', color: 'inherit', border: 'none', padding: '0', font: 'inherit', outline: 'inherit',cursor: 'pointer' }}>
                                         <img style={{height: '100%', width: '100%'}} src={val.thumb} alt={val.title}></img>
                                     </button>
                                     <div style={{border: '1px solid'}}/>
 
-                                    <div style={{display: 'flex', flexGrow: 'inherit' ,height: '100%', width: '100%'}}>
-                                            <span className="Showcase-gamesText" style={{fontSize: '.62vw',minWidth: '215px', maxWidth:'215px', flexWrap: 'wrap', flexShrink: 'initial'}}>{val.external + ": "}</span>
+                                    <div style={{display: 'flex', flexGrow: 'inherit' ,height: 'inherit', width: '70%', borderRight: `1px solid`, justifyContent: 'center', alignItems: 'center'}}>
+                                            <span className="Showcase-gamesText" style={{fontSize: '15px',minWidth: '215px', maxWidth:'215px', flexWrap: 'wrap', flexShrink: 'initial'}}>{val.external + ": "}</span>
                                     </div>
 
                                     <div className="Showcase-priceBox">
@@ -192,7 +220,6 @@ const Showcase = (props) =>{
                                     </div>
                                 </div>
                             )
-                            // }
                         })
                     }
                 </div>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Filter from "./component/Filter";
 import Showcase from "./component/Showcase";
 import './App.css';
@@ -10,17 +10,22 @@ const App = ()=>{
   const callBack = (filterCallback) => {
     setFilter(filterCallback);
   }
-
+  
   return(
-    <div className="App" style={{}}>
+    <div className="App" style={{height: `${window.outerHeight}px`, width: `${window.outerWidth}`}}>
       <div className="filterSide">
         <Filter handleCallback={callBack}/>
       </div>
-      <div className="middleGameDeals">
-        <Showcase props={filter}/>
+      <div style={{
+        flexDirection: 'column',
+        height: 'inherit',
+        width: '80%',
+        borderRight: '1px solid'
+      }}>
+          <Showcase props={filter}/>
       </div>
-      <div className="profileSetup">
-          <Profile/>
+      <div style={{height: 'inherit', width: '10%'}}>
+        <Profile/>
       </div>
     </div>
   );

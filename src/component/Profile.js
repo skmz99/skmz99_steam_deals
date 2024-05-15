@@ -11,6 +11,17 @@ const Profile = () =>{
         passWord: false
     });
 
+    //delete useEffect before commit
+    useEffect(()=>{
+        fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&pageNumber=1',{
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(result=>{return result.json()})
+        .then(response=>{setUser(response)})
+    },[])
+ 
+        
     useEffect(()=>{
         // fetch('http://localhost:5432/sessionUser',{
         fetch('https://smendez-steam-deals-229dfa09606a.herokuapp.com/sessionUser',{
@@ -188,12 +199,13 @@ const Profile = () =>{
                 {/* <span style={{opacity: '0.5',}}>aslkdf</span> */}
                 {  
                     userName !== undefined && user !== undefined?
-                    <div style={{display: 'flex', flexDirection: 'column', height: '100%', width: '100%', /*background: 'lightgray'*/}}>
+                    <div style={{display: 'flex', flexDirection: 'column', height: '100%', width: '100%'}}>
                         <div style={{width: '100%',}}>
                             <button onClick={()=>{window.location.reload()}}>Refresh</button>
                         </div>
                         {/* {console.log(user)} */}
                         {user.map((val,key)=>{
+                            
                             return(
                                 <div key={key} style={{display: 'flex', flexDirection: 'row',border: '1px solid black', width: '100%',height: '50px'}}>
                                     <button onClick={()=>{window.open(`https://store.steampowered.com/app/${val.steamappid}`)}} style={{height: '100%', width: '50%',background: 'none', color: 'inherit', border: 'none', padding: '0', font: 'inherit', outline: 'inherit',cursor: 'pointer' }}>
