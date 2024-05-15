@@ -25,7 +25,7 @@ const App = ()=>{
           <Showcase props={filter}/>
       </div>
       <div style={{height: 'inherit', width: '10%'}}>
-        {/* <Profile/> */}
+        <Profile/>
       </div>
     </div>
   );

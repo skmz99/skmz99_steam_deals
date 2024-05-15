@@ -12,7 +12,6 @@ const Profile = () =>{
     });
         
     useEffect(()=>{
-        // fetch('http://localhost:5432/sessionUser',{
         fetch('https://smendez-steam-deals-229dfa09606a.herokuapp.com/sessionUser',{
             method: 'GET',
             credentials: 'include',
@@ -34,7 +33,6 @@ const Profile = () =>{
     },[])
 
     useEffect(()=>{
-        // fetch('http://localhost:5432/userWishlist',{
         fetch('https://smendez-steam-deals-229dfa09606a.herokuapp.com/userWishlist',{
             method: 'GET',
             credentials:'include',
@@ -55,7 +53,6 @@ const Profile = () =>{
     },[])
 
     const logout = () =>{
-        // fetch('http://localhost:5432/logout',{
         fetch('https://smendez-steam-deals-229dfa09606a.herokuapp.com/logout',{
             method: 'GET',
             credentials: 'include',
@@ -69,7 +66,6 @@ const Profile = () =>{
     }
     const handleLogin = (e)=>{
         e.preventDefault();
-        // fetch(`http://localhost:5432/checkUser?username=${e.target[0].value}&password=${e.target[1].value}`,{
         fetch(`https://smendez-steam-deals-229dfa09606a.herokuapp.com/checkUser?username=${e.target[0].value}&password=${e.target[1].value}`,{
             method: 'GET',
             credentials:'include',
@@ -81,16 +77,13 @@ const Profile = () =>{
         .then((res)=>{return res.json()})
         .then((result)=>{
             Object.values(result).includes("Error: Username or Password are incorrect") ? seterrorMessage(Object.values(result)): window.location.reload()
-            // console.log(Object.values(result));
         })
         .catch((err)=>{console.log(err)})
-        // console.log(e.target);
     }
 
     const saveUserInfo = (e)=>{
         let name = e.target[0].value
         let password = e.target[1].value
-        // fetch('http://localhost:5432/enterUser',{
         fetch('https://smendez-steam-deals-229dfa09606a.herokuapp.com/enterUser',{
             method: 'POST',
             headers: {
@@ -103,8 +96,6 @@ const Profile = () =>{
         })
         .then((res)=>{return res.json()})
         .then((result)=>{result.message ? seterrorMessage(result.message): window.location.reload()
-        
-            // console.log(Object.values(result.message))
         })
         .catch((err)=>{console.log(err)})
     }
@@ -134,7 +125,6 @@ const Profile = () =>{
     }
 
     const handleremoveWishlist = (e,value) =>{
-        // fetch(`http://localhost:5432/removeWishlist?steamAppID=${value}`,{
         fetch(`https://smendez-steam-deals-229dfa09606a.herokuapp.com/removeWishlist?steamAppID=${value}`,{
             method: 'DELETE',
             credentials: 'include',
@@ -179,14 +169,12 @@ const Profile = () =>{
             </div>
             {/* User Wistlist*/}
             <div className="user-wishlistArea">
-                {/* <span style={{opacity: '0.5',}}>aslkdf</span> */}
                 {  
                     userName !== undefined && user !== undefined?
                     <div style={{display: 'flex', flexDirection: 'column', height: '100%', width: '100%'}}>
                         <div style={{width: '100%',}}>
                             <button onClick={()=>{window.location.reload()}}>Refresh</button>
                         </div>
-                        {/* {console.log(user)} */}
                         {user.map((val,key)=>{
                             
                             return(
